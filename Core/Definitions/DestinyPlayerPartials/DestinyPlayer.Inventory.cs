@@ -6,15 +6,15 @@
 
         //entry 0 is always the EQUIPPED item. 
 
-        public List<Armor> headArmor;
+        public List<Armor> headArmorInventory;
 
-        public List<Armor> armArmor;
+        public List<Armor> armArmorInventory;
 
-        public List<Armor> chestArmor;
+        public List<Armor> chestArmorInventory;
 
-        public List<Armor> legArmor;
+        public List<Armor> legArmorInventory;
 
-        public List<Armor> classArmor;
+        public List<Armor> classArmorInventory;
 
         public List<DestinyItem> postMasterSpace = new(45);
 
@@ -30,23 +30,6 @@
 
         public List<Weapon> secondaryWeapons;
 
-        internal bool ExoticArmorEquipped()
-        {
-            if (headArmor[0].itemRarity is Exotic)
-                return true;
-
-            if (armArmor[0].itemRarity is Exotic)
-                return true;
-
-            if (chestArmor[0].itemRarity is Exotic)
-                return true;
-
-            if (legArmor[0].itemRarity is Exotic)
-                return true;
-
-            else return false;
-        }
-
         internal bool ExoticWeaponEquipped()
         {
             if (primaryWeapons[0].itemRarity is Exotic)
@@ -59,6 +42,14 @@
                 return true;
 
             else return false;
+        }
+
+        internal static void EquipItem(List<DestinyItem> listInQuestion, DestinyItem itemToEquip)
+        {
+            DestinyItem itemToSwapOut = listInQuestion.First();
+            int indexOf = listInQuestion.IndexOf(itemToEquip);
+            listInQuestion[0] = itemToEquip;
+            listInQuestion[indexOf] = itemToSwapOut;
         }
 
         internal void EnterNewItem(DestinyItem item)

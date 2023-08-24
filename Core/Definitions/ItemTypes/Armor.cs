@@ -6,6 +6,41 @@
         
         public int[] rolledStats;
 
+        public Modification SlotA;
+
+        public Modification SlotB;
+
+        public Modification SlotC;
+
+        public Modification SlotD;
+
+        internal void ResetStats() 
+        {
+            armorStats[0] = 0;
+            armorStats[1] = 0;
+            armorStats[2] = 0;
+            armorStats[3] = 0;
+            armorStats[4] = 0;
+            armorStats[5] = 0;
+        }
+
+        internal void UpdateEquippedMods(Armor armor)
+        {
+
+        }
+
+        internal void UpdateRolledStats(Armor armor)
+        {
+            UpdateArmor(armor);
+
+            armorStats[0] += rolledStats[0];
+            armorStats[1] += rolledStats[1];
+            armorStats[2] += rolledStats[2];
+            armorStats[3] += rolledStats[3];
+            armorStats[4] += rolledStats[4];
+            armorStats[5] += rolledStats[5];
+        }
+
         public virtual void SetDefaultStats()
         {
             armorStats[0] = 0;
@@ -16,15 +51,7 @@
             armorStats[5] = 0;
         }
 
-        public virtual void UpdateArmor(Armor armor)
-        {
-            armor.armorStats[0] += armor.rolledStats[0];
-            armor.armorStats[1] += armor.rolledStats[1];
-            armor.armorStats[2] += armor.rolledStats[2];
-            armor.armorStats[3] += armor.rolledStats[3];
-            armor.armorStats[4] += armor.rolledStats[4];
-            armor.armorStats[5] += armor.rolledStats[5];
-        }
+        public virtual void UpdateArmor(Armor armor) { }
 
         public override void OnCreated(ItemCreationContext context)
         {
@@ -32,7 +59,7 @@
 
             rolledStats ??= new int[6];
             
-            if (rarity is ItemRarity.Legendary)
+            if (itemRarity is Legendary)
             {
                 for (int i = 0; i < 2; i++)
                 {
@@ -58,7 +85,8 @@
 
         public override void UpdateEquip(Player player)
         {
-            UpdateArmor(this);
+            ResetStats();
+            UpdateRolledStats(this);
 
             //update based on equipped mods too.
 
