@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\tModLoader.targets" />
+  <PropertyGroup>
+    <AssemblyName>DestinyMod</AssemblyName>
+    <TargetFramework>net6.0</TargetFramework>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="localization\it-IT.hjson" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\sounds\music\" />
+    <Folder Include="Assets\sounds\sfx\" />
+    <Folder Include="Assets\textures\item\minis\" />
+    <Folder Include="Assets\textures\item\closeups\" />
+    <Folder Include="Assets\textures\ui\clan\" />
+    <Folder Include="Assets\textures\ui\collections\icons\" />
+    <Folder Include="Assets\textures\ui\inventory\item_frames\" />
+    <Folder Include="Assets\textures\ui\inventory\item_icons\" />
+    <Folder Include="Assets\textures\ui\inventory\season_icons\" />
+    <Folder Include="Assets\textures\ui\navigation\activity_icons\" />
+    <Folder Include="Assets\textures\ui\vendor\" />
+    <Folder Include="Assets\textures\ui\triumphs\" />
+    <Folder Include="Assets\textures\ui\social\" />
+    <Folder Include="Content\Items\Armor\Hunter\" />
+    <Folder Include="Content\Items\Armor\Warlock\" />
+    <Folder Include="Content\Items\Armor\Titan\" />
+    <Folder Include="Content\Items\Engrams\" />
+    <Folder Include="Content\Items\Emblems\" />
+    <Folder Include="Content\Items\Weapons\Heavy\GrenadeLaunchers\" />
+    <Folder Include="Content\Items\Weapons\Heavy\MachineGuns\" />
+    <Folder Include="Content\Items\Weapons\Heavy\LFRs\" />
+    <Folder Include="Content\Items\Weapons\Heavy\RocketLaunchers\" />
+    <Folder Include="Content\Items\Weapons\Primary\HandCannons\" />
+    <Folder Include="Content\Items\Weapons\Primary\AutoRifles\" />
+    <Folder Include="Content\Items\Weapons\Primary\Bows\" />
+    <Folder Include="Content\Items\Weapons\Primary\ScoutRifles\" />
+    <Folder Include="Content\Items\Weapons\Primary\Sidearms\" />
+    <Folder Include="Content\Items\Weapons\Primary\SMGs\" />
+    <Folder Include="Content\Items\Weapons\Primary\PulseRifles\" />
+    <Folder Include="Content\Items\Weapons\Special\FusionRifles\" />
+    <Folder Include="Content\Items\Weapons\Special\Glaives\" />
+    <Folder Include="Content\Items\Weapons\Special\Shotguns\" />
+    <Folder Include="Content\Items\Weapons\Special\SniperRifles\" />
+    <Folder Include="Content\Items\Weapons\Special\TraceRifles\" />
+    <Folder Include="Content\Archetypes\" />
+    <Folder Include="Content\Traits\Weapons\Exotic\" />
+    <Folder Include="Content\Traits\Weapons\Origin\" />
+    <Folder Include="Content\Traits\Weapons\Special\" />
+    <Folder Include="Core\Definitions\DestinyNPCPartials\" />
+    <Folder Include="Content\GUI\Screens\Title\" />
+  </ItemGroup>
+</Project>

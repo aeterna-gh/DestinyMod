@@ -1,0 +1,19 @@
+DESTINY MOD
+-----
+
+Destiny 2 is a game that I have grown to love over my 7 years of playing. And while recent events have left me jaded for the worst, I was compelled to recreate the game in my image through modding.
+And now, after several years, here we are.
+
+DISCLAIMERS
+-----
+
+- Please do not attempt to use this with unverified mods, such as most content or QoL mods.
+- Doing the above will likely lead to immediate crashes or errors.
+
+- This is NOT an official port of the Destiny Mod developed by Cuno, Ghost and Smug. This is, and shall be treated as, a separate project.
+
+
+CONTENT OVERHAUL
+-----
+
+

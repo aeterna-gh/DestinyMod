@@ -1,0 +1,29 @@
+ARMOR FILE ORGANIZATION
+====
+
+A short guide.
+
+-----
+
+Armor is organized based on what class the armor belongs to.
+
+For example, a class item pertaining to a Titan will always appear within the "Titan" folder.
+
+However, since all armor pertains normally to a "set", there is only one file per SET of armor.
+
+This means each piece of an armor set is contained within a central file, with its assets being pulled from the Assets folder.
+
+For ex.
+
+=> armor_vaultofglass_titan => the main set of Vault of Glass for Titans
+	|
+	|====> armor_vaultofglass_titan_helmet => "Kabr's Battlecage"
+			|
+			|====> grab sprite(s) w/ "{name}_sheet#"
+			|====> set relevant data (is Helment, is Legendary, earnable from Vault of Glass, added in vanilla (or S14))
+
+	|====> armor_vaultofglass_titan_arms => "Kabr's Brazen Grips"
+	|====> armor_vaultofglass_titan_chest => "Kabr's Wrath"
+	|====> armor_vaultofglass_titan_legs => "Kabr's Forceful Greaves"
+	|====> armor_vaultofglass_titan_class => idk whatever it's called.
+	|====> armor_vaultofglass_titan_playerLink => other data / relevant info regarding the set as a whole.

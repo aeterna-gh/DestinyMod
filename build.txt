@@ -1,0 +1,3 @@
+displayName = Destiny Mod
+author = Event Horizon Games
+version = 0.1
