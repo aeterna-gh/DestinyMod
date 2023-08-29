@@ -6,7 +6,11 @@
 
         public List<PlayerSubclass> classSubclasses;
 
+        public virtual new void Load() { }
+
         public virtual void SetDefaults() { }
+
+        public virtual new void Unload() { }
 
         protected sealed override void Register()
         {

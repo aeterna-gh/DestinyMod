@@ -8,58 +8,31 @@
 
         public Element weaponDamageType;
 
-        #region STATS
+        public int ammoCurrent;
 
-        /// <summary>
-        /// The range this weapon's projectiles travel.
-        /// </summary>
-        public int statRange;
+        public int ammoMax;
 
-        /// <summary>
-        /// The amount of recoil control this weapon has.
-        /// </summary>
-        public int statStability;
+        public int magazineCurrent;
 
-        /// <summary>
-        /// The ready and stow speed of this weapon.
-        /// </summary>
-        public int statHandling;
+        public int magazineMax;
 
-        /// <summary>
-        /// The speed at which you can reload this weapon.
-        /// </summary>
-        public int statReloadSpeed;
-
-        /// <summary>
-        /// I don't know how to implement this yet so it's just there for accuracy's sake, 'K?
-        /// </summary>
-        public int statRecoilDirection;
-
-        /// <summary>
-        /// The blast radius of explosive projectiles. Only set for Rocket Launchers and Grenade Launchers!
-        /// </summary>
-        public int statBlastRadius;
-
-        /// <summary>
-        /// The speed at which projectiles fired from this weapon travel. Only set for Rocket Launchers and Grenade Launchers!
-        /// </summary>
-        public int statVelocity;
-
-        /// <summary>
-        /// Affects arrow hit consistency at longer ranges or when hip fired. Only set for Bows!
-        /// </summary>
         public int statAccuracy;
 
-        /// <summary>
-        /// The amount of drain your shield takes while in use. Only set for Glaives!
-        /// </summary>
+        public int statBlastRadius;
+
+        public int statHandling;
+
+        public int statRange;
+
+        public int statRecoilDirection;
+
+        public int statReloadSpeed;
+
+        public int statStability;
+
+        public int statVelocity;
+
         public int statShieldDuration;
-
-        #endregion
-
-        public int magazineCurrent, magazineMax;
-
-        public int ammoCurrent, ammoMax;
 
         public SubArchetype weaponSubArchetype;
 
@@ -102,7 +75,7 @@
             }
         }
 
-        public virtual void SetDefaultStats(Weapon weapon)
+        public void SetDefaultStats(Weapon weapon)
         {
             weapon.statRange += weapon.weaponData.Range;
             weapon.statStability += weapon.weaponData.Stability;
@@ -149,11 +122,6 @@
             weaponSubArchetype.SubArchEffect(this);
 
             base.UpdateInventory(player);
-        }
-
-        public override bool CanUseItem(Player player)
-        {
-            return base.CanUseItem(player);
         }
 
         public enum AmmoType

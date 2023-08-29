@@ -2,15 +2,17 @@
 {
     public abstract class Trait : ModType
     {
-        public int ID { get; private set; }
-
         public bool isIntrinsic = false;
+
+        public int ID { get; private set; }
 
         public string traitName;
 
         public string traitDescription;
 
         public Texture2D traitIcon;
+
+        public virtual new void Load() { }
 
         public virtual void SetDefaults() { }
 
@@ -31,6 +33,8 @@
         /// </summary>
         /// <param name="weapon"></param>
         public virtual void TraitEffect(Weapon weapon) { }
+
+        public virtual new void Unload() { }
 
         protected sealed override void Register()
         {

@@ -1,8 +1,12 @@
 ﻿namespace DestinyMod.Core.Definitions
 {
     public abstract class Archetype : ModType
-    {
+    { 
         public int ID { get; private set; }
+
+        public int statChargeTime;
+
+        public int statDrawTime;
 
         public int statImpact;
 
@@ -12,10 +16,6 @@
 
         public int shotDuration;
 
-        public int drawTime;
-
-        public int chargeTime;
-
         /// <summary>
         /// Determines whether you can use this weapon again. <para></para>
         /// Determined by <see cref="shotDownTime"/> and ammo count.
@@ -23,6 +23,8 @@
         /// <param name="weapon"></param>
         /// <returns></returns>
         public virtual bool CanUse(Weapon weapon) => false;
+
+        public virtual new void Load() { }
 
         /// <summary>
         /// Determines how this archetype is used.
@@ -32,18 +34,20 @@
 
         public virtual void SetDefaults() { }
 
-        public sealed override void SetupContent()
-        {
-            SetDefaults();
-
-            base.SetupContent();
-        }
+        public virtual new void Unload() { }
 
         protected sealed override void Register()
         {
             ModTypeLookup<Archetype>.Register(this);
 
-            //ID =
+            ID = ArchetypeLoader.Add(this);
+        }
+
+        public sealed override void SetupContent()
+        {
+            SetDefaults();
+
+            base.SetupContent();
         }
     }
 }

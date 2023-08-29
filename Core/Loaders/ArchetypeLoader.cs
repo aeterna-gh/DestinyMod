@@ -24,6 +24,7 @@
         }
 
         private static readonly List<Archetype> _archetypes = new();
+
         public static int Count => _archetypes.Count;
 
         internal static int Add(Archetype archetype)
@@ -40,12 +41,17 @@
         {
             DestinyMod mod = DestinyMod.Instance;
 
-            mod.AddContent(ArchetypeDefs.AutoRifle = null);
+            foreach (Archetype arch in _archetypes)
+                arch.Load();
 
+            mod.AddContent(ArchetypeDefs.AutoRifle = null);
         }
 
         public static void Unload() 
         {
+            foreach (Archetype arch in _archetypes)
+                arch.Unload();
+
             foreach (var field in typeof(ArchetypeDefs).GetFields().Where(f => f.FieldType == typeof(Archetype)))
                 field.SetValue(null, null);
 
