@@ -1,4 +1,6 @@
-﻿namespace DestinyMod.Core.Loaders
+﻿using DestinyMod.Content.Classes;
+
+namespace DestinyMod.Core.Loaders
 {
     public static class PlayerClassLoader
     {

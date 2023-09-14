@@ -4,13 +4,47 @@ namespace DestinyMod
 	{
         internal static DestinyMod Instance => ModContent.GetInstance<DestinyMod>();
 
+        public List<string> windowTitles;
+
+        internal void UpdateWindowTitle()
+        {
+            int randTitle = Main.rand.Next(0, windowTitles.Count - 1);
+
+            Main.instance.Window.Title = windowTitles[randTitle];
+        }
+
+        internal void LoadWindowTitles()
+        {
+            windowTitles ??= new()
+            {
+                "[DestinyMod]: Blam!",
+                "[DestinyMod]: Error. Bungie.net, satisfying your mom since 1991! Error",
+                "[DestinyMod]: It's a thing!",
+                "[DestinyMod]: It's on your head.",
+                "[DestinyMod]: Leaned on any railways lately?",
+                "[DestinyMod]: Taco says no.",
+                "[DestinyMod]: That is not a thing.",
+                "[DestinyMod]: The amusement fair is for recreational use only.",
+                "[DestinyMod]: There's a ball around here somewhere.",
+                "[DestinyMod]: You are a great Guardian, and your mom is a classy lady."
+            };
+        }
+
         public override void Load()
         {
+            LoadWindowTitles();
+
+            ArchetypeLoader.Load();
+
+            DestinyRarityLoader.Load();
+
             ElementLoader.Load();
 
             PlayerClassLoader.Load();
 
             PlayerSubclassLoader.Load();
+
+            SubArchetypeLoader.Load();
 
             TraitLoader.Load();
 
@@ -19,11 +53,17 @@ namespace DestinyMod
 
         public override void Unload()
         {
+            ArchetypeLoader.Unload();
+
+            DestinyRarityLoader.Unload();
+
             ElementLoader.Unload();
 
             PlayerClassLoader.Unload();
 
             PlayerSubclassLoader.Unload();
+
+            SubArchetypeLoader.Unload();
 
             TraitLoader.Unload();
 

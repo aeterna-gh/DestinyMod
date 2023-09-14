@@ -1,4 +1,7 @@
-﻿namespace DestinyMod.Core.Definitions.DestinyPlayerPartials
+﻿using DestinyMod.Content.Elements;
+using DestinyMod.Content.Rarities;
+
+namespace DestinyMod.Core.Definitions.DestinyPlayerPartials
 {
     public partial class DestinyPlayer
     {

@@ -1,4 +1,6 @@
-﻿namespace DestinyMod.Core.Loaders
+﻿using DestinyMod.Content.Rarities;
+
+namespace DestinyMod.Core.Loaders
 {
     internal static class DestinyRarityLoader
     {

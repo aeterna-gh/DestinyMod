@@ -36,12 +36,6 @@
             secondaryWeapons = null;
             heavyWeapons = null;
 
-            headArmor = null;
-            armArmor = null;
-            chestArmor = null;
-            legArmor = null;
-            classArmor = null;
-
             base.Unload();
         }
     }
