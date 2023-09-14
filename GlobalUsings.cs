@@ -25,6 +25,7 @@ global using System.Threading;
 
 global using Terraria;
 global using Terraria.DataStructures;
+global using Terraria.GameContent;
 global using Terraria.ID;
 global using Terraria.IO;
 global using Terraria.ModLoader;

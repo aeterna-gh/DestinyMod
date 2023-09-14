@@ -14,10 +14,14 @@
     <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Assets\resources\" />
     <Folder Include="Assets\sounds\music\" />
-    <Folder Include="Assets\sounds\sfx\" />
+    <Folder Include="Assets\sounds\sfx\ability\" />
+    <Folder Include="Assets\sounds\sfx\item\a\" />
+    <Folder Include="Assets\sounds\sfx\item\weapon\" />
     <Folder Include="Assets\textures\item\minis\" />
     <Folder Include="Assets\textures\item\closeups\" />
+    <Folder Include="Assets\textures\font\" />
     <Folder Include="Assets\textures\ui\clan\" />
     <Folder Include="Assets\textures\ui\collections\icons\" />
     <Folder Include="Assets\textures\ui\inventory\item_frames\" />

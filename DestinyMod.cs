@@ -34,6 +34,8 @@ namespace DestinyMod
         {
             LoadWindowTitles();
 
+            On_ResourcePackList.CreatePacksFromDirectories += FindResourcePack;
+
             ArchetypeLoader.Load();
 
             DestinyRarityLoader.Load();
@@ -49,6 +51,21 @@ namespace DestinyMod
             TraitLoader.Load();
 
             base.Load();
+        }
+
+        private void FindResourcePack(On_ResourcePackList.orig_CreatePacksFromDirectories orig, IServiceProvider services, string searchPath, List<ResourcePack> resourcePacks)
+        {
+            searchPath = "DestinyMod/Assets/resources";
+
+            ResourcePack packToAdd = new(services, searchPath, ResourcePack.BrandingType.None);
+
+            if (packToAdd is null) //add more checks here (exists, is identified correctly)
+                return; //error and return orig
+
+            else 
+                resourcePacks.Add(packToAdd);
+
+            orig.Invoke(services, searchPath, resourcePacks);
         }
 
         public override void Unload()
