@@ -10,11 +10,11 @@
 
         public DestinyRarity itemRarity;
 
-        public Element itemElement;
-
         public int exoticEarnCount;
 
-        public string extraText;
+        public int masterworkLevel;
+
+        public string tooltipText;
 
         public string internalName;
 
@@ -27,5 +27,19 @@
 
             base.SetDefaults();
         }
+
+        public void MasterworkLevelUp() 
+        {
+            
+        }
+
+        internal void MasterworkMe()
+        {
+
+
+            OnMasterworked();
+        }
+
+        public virtual void OnMasterworked() { }
     }
 }

@@ -16,20 +16,15 @@
 
         public override void ResetEffects()
         {
-            statAgility = 0;
-            statResilience = 0;
-            statRecovery = 0;
-            statDiscipline = 0;
-            statIntellect = 0;
-            statStrength = 0;
-
-            lightLevel = 0;
+            ResetStats();
 
             base.ResetEffects();
         }
 
         public override void Load()
         {
+            On_Player.Hurt_PlayerDeathReason_int_int_bool_bool_int_bool_float_float_float += HurtDetour;
+
             vaultSpace ??= new(500);
 
             primaryWeapons ??= new(10);
@@ -41,6 +36,13 @@
 
         public override void LoadData(TagCompound tag)
         {
+            //class choice saving
+            //subclass choice saving
+
+            tag[nameof(playerLevel)] = playerLevel;
+
+            tag["vaultSpace"] = vaultSpace.Select(x => x).ToList();
+
             tag["primaryWeapons"] = primaryWeapons.Select(x => x).ToList();
             tag["secondaryWeapons"] = secondaryWeapons.Select(x => x).ToList();
             tag["heavyWeapons"] = heavyWeapons.Select(x => x).ToList();
@@ -50,6 +52,13 @@
 
         public override void SaveData(TagCompound tag)
         {
+            //class choice saving
+            //subclass choice saving
+
+            playerLevel = tag.Get<int>(nameof(playerLevel));
+
+            vaultSpace = tag.Get<List<DestinyItem>>("vaultSpace").Select(x => x).ToList();
+
             primaryWeapons = tag.Get<List<Weapon>>("primaryWeapons").Select(x => x).ToList();
             secondaryWeapons = tag.Get<List<Weapon>>("secondaryWeapons").Select(x => x).ToList();
             heavyWeapons = tag.Get<List<Weapon>>("heavyWeapons").Select (x => x).ToList();
@@ -59,6 +68,8 @@
 
         public override void Unload()
         {
+            vaultSpace = null;
+
             primaryWeapons = null;
             secondaryWeapons = null;
             heavyWeapons = null;

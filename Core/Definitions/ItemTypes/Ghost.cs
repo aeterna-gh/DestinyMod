@@ -2,6 +2,10 @@
 {
     public abstract class Ghost : DestinyItem
     {
+        public Texture2D ghostHoldoutTexture;
+
+        public Trait ghostIntrinsic = null;
+
 
     }
 }

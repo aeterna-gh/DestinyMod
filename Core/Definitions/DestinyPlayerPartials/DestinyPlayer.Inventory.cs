@@ -33,6 +33,23 @@ namespace DestinyMod.Core.Definitions.DestinyPlayerPartials
 
         public List<Weapon> secondaryWeapons;
 
+        internal bool ExoticArmorEquipped()
+        {
+            if (headArmorInventory[0].itemRarity is Exotic)
+                return true;
+
+            if (armArmorInventory[0].itemRarity is Exotic)
+                return true;
+
+            if (chestArmorInventory[0].itemRarity is Exotic)
+                return true;
+
+            if (legArmorInventory[0].itemRarity is Exotic)
+                return true;
+
+            else return false;
+        }
+
         internal bool ExoticWeaponEquipped()
         {
             if (primaryWeapons[0].itemRarity is Exotic)
@@ -55,43 +72,61 @@ namespace DestinyMod.Core.Definitions.DestinyPlayerPartials
             listInQuestion[indexOf] = itemToSwapOut;
         }
 
-        internal void EnterNewItem(DestinyItem item)
+        private void EnterArmor(Armor armor)
         {
 
+        }
+
+        internal void EnterItem(DestinyItem item)
+        {
+            if (item is Armor)
+                EnterArmor((Armor)item);
+
+            if (item is Weapon)
+                EnterWeapon((Weapon)item);
         }
 
         private void EnterWeapon(Weapon weapon)
         {
             if (weapon.ammoType is Weapon.AmmoType.Heavy && !SendToPostmaster(heavyWeapons, weapon))
             {
-                heavyWeapons[heavyWeapons.Count(x => x is Weapon)] = weapon;
+                heavyWeapons[heavyWeapons.Count + 1] = weapon;
                 OnAddItem(weapon);
             }
 
-            if (weapon.itemElement is not Kinetic || weapon.itemElement is not Stasis && !SendToPostmaster(secondaryWeapons.ToList<DestinyItem>(), weapon))
+            if (weapon.weaponDamageType is Kinetic || weapon.weaponDamageType is Stasis && !SendToPostmaster(primaryWeapons, weapon))
             {
-                secondaryWeapons[secondaryWeapons.Count(x => x is Weapon)] = weapon;
+                primaryWeapons[primaryWeapons.Count + 1] = weapon;
                 OnAddItem(weapon);
-            }
+            } 
 
-            else if (!SendToPostmaster(primaryWeapons.ToList<DestinyItem>(), weapon))
+            else if (!SendToPostmaster(secondaryWeapons, weapon))
             {
-                primaryWeapons[primaryWeapons.Count(x => x is Weapon)] = weapon;
+                secondaryWeapons[secondaryWeapons.Count + 1] = weapon;
                 OnAddItem(weapon);
             }
         }
 
-        internal bool SendToPostmaster(IEnumerable<DestinyItem> listToTest, DestinyItem itemInQuestion)
+        internal bool SendToPostmaster(IEnumerable<DestinyItem> listInQuestion, DestinyItem itemToSend)
         {
-            if (listToTest.Count() >= 10)
+            if (listInQuestion.Count() == 10)
             {
-                postMasterSpace.Add(itemInQuestion);
+                postMasterSpace.Add(itemToSend);
+                OnSentToPostmaster(itemToSend);
                 return true;
+            }
+
+            if (postMasterSpace.Count >= 45)
+            {
+                //leave on floor
+                return false;
             }
 
             else return false;
         }
 
         public virtual void OnAddItem(DestinyItem item) { }
+
+        public virtual void OnSentToPostmaster(DestinyItem item) { }
     }
 }

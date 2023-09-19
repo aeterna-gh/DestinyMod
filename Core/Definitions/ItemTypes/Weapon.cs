@@ -92,6 +92,11 @@
             weapon.magazineMax = magazineMax;
         }
 
+        internal void RollWeaponTraits()
+        {
+
+        }
+
         #region CLONING
 
         public override bool IsCloneable => true;
@@ -102,6 +107,13 @@
         }
 
         #endregion
+
+        public override void OnCreated(ItemCreationContext context)
+        {
+
+
+            base.OnCreated(context);
+        }
 
         public override void SetDefaults()
         {
@@ -130,6 +142,24 @@
             Special,
             Heavy
         }
+
+        public enum WeaponMasterworkType
+        {
+            Range,
+            Stability,
+            Handling,
+            ReloadSpeed,
+
+            Impact,
+
+            Accuracy,
+
+            DrawSpeed,
+
+            ChargeSpeed,
+
+            Velocity
+        }
     }
 
     public struct WeaponData
@@ -156,12 +186,16 @@
             ShieldDuration = 0;
         }
 
-        public WeaponData(int range, int stability, int handling, int reloadspeed, int velocity, int accuracy, int shielddur)
+        public WeaponData(int range, int stability, int handling, int reloadspeed, int velocity = 0, int accuracy = 0, int shielddur = 0)
         {
             Range = range;
             Stability = stability;
             Handling = handling;
             ReloadSpeed = reloadspeed;
+
+            Velocity = velocity;
+            Accuracy = accuracy;
+            ShieldDuration = shielddur;
         }
     }
 }

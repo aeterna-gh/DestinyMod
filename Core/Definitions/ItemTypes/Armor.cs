@@ -1,7 +1,11 @@
-﻿namespace DestinyMod.Core.Definitions.ItemTypes
+﻿using DestinyMod.Content.Rarities;
+
+namespace DestinyMod.Core.Definitions.ItemTypes
 {
     public abstract class Armor : DestinyItem
     {
+        public Element armorElement;
+
         public int[] armorStats;
         
         public int[] rolledStats;
@@ -78,7 +82,7 @@
                 }
             }
 
-            //Exotics with focusing handled separately and in their own file.
+            //Exotics with focusing
 
             base.OnCreated(context);
         }
