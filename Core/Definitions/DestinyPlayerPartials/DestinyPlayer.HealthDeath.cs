@@ -14,8 +14,21 @@
         {
             
 
-
-            throw new NotImplementedException();
+            return 0.0;
         }
+
+        public void UpdateHealth()
+        {
+            if (healthCurrent <= 50)
+                isShieldBroken = true;
+
+
+        }
+
+        public virtual void OnHit() { }
+
+        public virtual void OnShieldBroken() { }
+
+        public virtual void WhileShieldBroken() { }
     }
 }

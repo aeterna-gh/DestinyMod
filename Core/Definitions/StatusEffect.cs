@@ -2,17 +2,19 @@
 {
     public abstract class StatusEffect : ModType
     {
+        public bool isPermanent;
+
         public bool isStackable;
 
         public int ID { get; private set; }
 
         public int effectTimeAddative;
 
-        public int effectTimeCurrent;
+        internal int effectTimeCurrent;
 
         public int effectTimeMaximum;
 
-        public int stackCurrent;
+        internal int stackCurrent;
 
         public int stackMaximum;
 
