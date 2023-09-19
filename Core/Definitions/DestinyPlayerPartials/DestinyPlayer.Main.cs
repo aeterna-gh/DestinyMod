@@ -2,13 +2,17 @@
 {
     public partial class DestinyPlayer : ModPlayer
     {
-        public PlayerClass Class { get; internal set; }
+        public int experienceCurrent;
 
-        public PlayerSubclass selectedSubclass;
+        public int experienceLevelCap;
+
+        public int experienceTotal;
 
         public int playerLevel;
 
-        public int experienceCurrent;
+        public PlayerClass Class { get; internal set; }
+
+        public PlayerSubclass selectedSubclass;
 
         public override void ResetEffects()
         {
@@ -26,8 +30,31 @@
 
         public override void Load()
         {
+            vaultSpace ??= new(500);
+
+            primaryWeapons ??= new(10);
+            secondaryWeapons ??= new(10);
+            heavyWeapons ??= new(10);
 
             base.Load();
+        }
+
+        public override void LoadData(TagCompound tag)
+        {
+            tag["primaryWeapons"] = primaryWeapons.Select(x => x).ToList();
+            tag["secondaryWeapons"] = secondaryWeapons.Select(x => x).ToList();
+            tag["heavyWeapons"] = heavyWeapons.Select(x => x).ToList();
+
+            base.LoadData(tag);
+        }
+
+        public override void SaveData(TagCompound tag)
+        {
+            primaryWeapons = tag.Get<List<Weapon>>("primaryWeapons").Select(x => x).ToList();
+            secondaryWeapons = tag.Get<List<Weapon>>("secondaryWeapons").Select(x => x).ToList();
+            heavyWeapons = tag.Get<List<Weapon>>("heavyWeapons").Select (x => x).ToList();
+
+            base.SaveData(tag);
         }
 
         public override void Unload()
