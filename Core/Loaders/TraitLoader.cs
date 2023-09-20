@@ -1,4 +1,6 @@
 ﻿using DestinyMod.Content.Traits.Weapons.FirstSlot;
+using System.Threading.Tasks;
+using Terraria.ModLoader.Core;
 
 namespace DestinyMod.Core.Loaders
 {
@@ -49,6 +51,25 @@ namespace DestinyMod.Core.Loaders
             #region BARREL SET E (rls, gls, etc.)
 
             #endregion
+
+            #region SPECIAL
+
+            public static Trait BaitAndSwitch { get; internal set; }
+            public static Trait KillTally { get; internal set; }
+
+            #endregion
+
+            #region EXOTIC // WEAPON
+
+            
+
+            #endregion
+
+            #region EXOTIC // ARMOR
+
+
+
+            #endregion
         }
 
         private static readonly List<Trait> _traits = new();
@@ -69,6 +90,11 @@ namespace DestinyMod.Core.Loaders
         internal static void Load()
         {
             DestinyMod mod = DestinyMod.Instance;
+
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+                foreach (var type in assembly.GetTypes())
+                    if (type.BaseType == typeof(Trait))
+                        type.GetMethod("LoadTrait", BindingFlags.Public).Invoke(null, null);
 
             mod.AddContent(TraitDefs.ArrowheadBrake = new ArrowheadBrake());
             mod.AddContent(TraitDefs.ChamberedCompensator = new ChamberedCompensator());

@@ -12,7 +12,7 @@
 
         public Texture2D traitIcon;
 
-        public virtual new void Load() { }
+        public virtual void LoadTrait() { }
 
         public virtual void SetDefaults() { }
 
@@ -34,7 +34,7 @@
         /// <param name="weapon"></param>
         public virtual void TraitEffect(Weapon weapon) { }
 
-        public virtual new void Unload() { }
+        public virtual void UnloadTrait() { }
 
         protected sealed override void Register()
         {
