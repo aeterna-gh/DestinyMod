@@ -1,6 +1,4 @@
 ﻿using DestinyMod.Content.Traits.Weapons.FirstSlot;
-using System.Threading.Tasks;
-using Terraria.ModLoader.Core;
 
 namespace DestinyMod.Core.Loaders
 {

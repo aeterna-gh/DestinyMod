@@ -32,9 +32,15 @@
     <Folder Include="Assets\textures\ui\vendor\" />
     <Folder Include="Assets\textures\ui\triumphs\" />
     <Folder Include="Assets\textures\ui\social\" />
-    <Folder Include="Content\Items\Armor\Hunter\" />
+    <Folder Include="Content\Items\Armor\Hunter\CE_Hunter\" />
+    <Folder Include="Content\Items\Armor\Hunter\KF_Hunter\" />
+    <Folder Include="Content\Items\Armor\Hunter\VOG_Titan\" />
+    <Folder Include="Content\Items\Armor\Hunter\WOTM_Hunter\" />
+    <Folder Include="Content\Items\Armor\Titan\CE_Titan\" />
+    <Folder Include="Content\Items\Armor\Titan\KF_Titan\" />
+    <Folder Include="Content\Items\Armor\Titan\WOTM_Titan\" />
+    <Folder Include="Content\Items\Armor\Titan\VOG_Titan\" />
     <Folder Include="Content\Items\Armor\Warlock\" />
-    <Folder Include="Content\Items\Armor\Titan\" />
     <Folder Include="Content\Items\Engrams\" />
     <Folder Include="Content\Items\Emblems\" />
     <Folder Include="Content\Items\Weapons\Heavy\GrenadeLaunchers\" />

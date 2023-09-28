@@ -1,6 +1,6 @@
 namespace DestinyMod
 {
-	public class DestinyMod : Mod
+	public partial class DestinyMod : Mod
 	{
         internal static DestinyMod Instance => ModContent.GetInstance<DestinyMod>();
 
