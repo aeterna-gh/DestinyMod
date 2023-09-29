@@ -39,6 +39,8 @@
             //class choice saving
             //subclass choice saving
 
+            tag[nameof(experienceCurrent)] = experienceCurrent;
+
             tag[nameof(playerLevel)] = playerLevel;
 
             tag["vaultSpace"] = vaultSpace.Select(x => x).ToList();

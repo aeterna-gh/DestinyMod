@@ -6,6 +6,8 @@ namespace DestinyMod.Core.Definitions.ItemTypes
     {
         public Element armorElement;
 
+        public int lightLevel;
+
         public int[] armorStats;
         
         public int[] rolledStats;
