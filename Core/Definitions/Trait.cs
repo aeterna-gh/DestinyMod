@@ -1,7 +1,9 @@
 ﻿namespace DestinyMod.Core.Definitions
 {
-    public abstract class Trait : ModType
+    public abstract class Trait : ModType, TagSerializable
     {
+        public static readonly Func<TagCompound, Trait> DESERIALIZER = Load;
+ 
         public bool isIntrinsic = false;
 
         public int ID { get; private set; }
@@ -12,7 +14,9 @@
 
         public Texture2D traitIcon;
 
-        public virtual void LoadTrait() { }
+        public TagCompound SerializeData() => new() { [nameof(ID)] = ID };
+
+        public static Trait Load(TagCompound tC) => TraitLoader.Get(tC.GetInt(nameof(ID)));
 
         public virtual void SetDefaults() { }
 
@@ -33,8 +37,6 @@
         /// </summary>
         /// <param name="weapon"></param>
         public virtual void TraitEffect(Weapon weapon) { }
-
-        public virtual void UnloadTrait() { }
 
         protected sealed override void Register()
         {

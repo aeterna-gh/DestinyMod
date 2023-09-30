@@ -41,5 +41,19 @@
         }
 
         public virtual void OnMasterworked() { }
+
+        public override void LoadData(TagCompound tag)
+        {
+            masterworkLevel = tag.GetInt(nameof(masterworkLevel));
+
+            base.LoadData(tag);
+        }
+
+        public override void SaveData(TagCompound tag)
+        {
+            tag[nameof(masterworkLevel)] = masterworkLevel;
+
+            base.SaveData(tag);
+        }
     }
 }

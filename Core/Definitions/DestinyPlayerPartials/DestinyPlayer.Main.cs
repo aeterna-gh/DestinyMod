@@ -31,39 +31,59 @@
             secondaryWeapons ??= new(10);
             heavyWeapons ??= new(10);
 
+            headArmorInventory ??= new(10);
+            armArmorInventory ??= new(10);
+            chestArmorInventory ??= new(10);
+            legArmorInventory ??= new(10);
+            classArmorInventory ??= new(10);
+
             base.Load();
         }
 
         public override void LoadData(TagCompound tag)
         {
-            //class choice saving
-            //subclass choice saving
+            Class = PlayerClassLoader.Get(tag.GetInt(nameof(Class)));
+            selectedSubclass = PlayerSubclassLoader.Get(tag.GetInt(nameof(selectedSubclass)));
 
-            tag[nameof(experienceCurrent)] = experienceCurrent;
+            experienceCurrent = tag.GetInt(nameof(experienceCurrent));
+            experienceTotal = tag.GetInt(nameof(experienceTotal));
+            playerLevel = tag.GetInt(nameof(playerLevel));
 
-            tag[nameof(playerLevel)] = playerLevel;
+            vaultSpace = tag.Get<List<DestinyItem>>(nameof(vaultSpace));
 
-            tag["vaultSpace"] = vaultSpace.Select(x => x).ToList();
+            primaryWeapons = tag.Get<List<Weapon>>(nameof(primaryWeapons));
+            secondaryWeapons = tag.Get<List<Weapon>>(nameof(secondaryWeapons));
+            heavyWeapons = tag.Get<List<Weapon>>(nameof(heavyWeapons));
 
-            tag["primaryWeapons"] = primaryWeapons.Select(x => x).ToList();
-            tag["secondaryWeapons"] = secondaryWeapons.Select(x => x).ToList();
-            tag["heavyWeapons"] = heavyWeapons.Select(x => x).ToList();
+            headArmorInventory = tag.Get<List<Armor>>(nameof(headArmorInventory));
+            armArmorInventory = tag.Get<List<Armor>>(nameof(armArmorInventory));
+            chestArmorInventory = tag.Get<List<Armor>>(nameof(chestArmorInventory));
+            legArmorInventory = tag.Get<List<Armor>>(nameof(legArmorInventory));
+            classArmorInventory = tag.Get<List<Armor>>(nameof(classArmorInventory));
 
             base.LoadData(tag);
         }
 
         public override void SaveData(TagCompound tag)
         {
-            //class choice saving
-            //subclass choice saving
+            tag[nameof(Class)] = Class.ID;
+            tag[nameof(selectedSubclass)] = selectedSubclass.ID;
 
-            playerLevel = tag.Get<int>(nameof(playerLevel));
+            tag[nameof(experienceCurrent)] = experienceCurrent;
+            tag[nameof(experienceTotal)] = experienceTotal;
+            tag[nameof(playerLevel)] = playerLevel;
 
-            vaultSpace = tag.Get<List<DestinyItem>>("vaultSpace").Select(x => x).ToList();
+            tag[nameof(vaultSpace)] = vaultSpace;
 
-            primaryWeapons = tag.Get<List<Weapon>>("primaryWeapons").Select(x => x).ToList();
-            secondaryWeapons = tag.Get<List<Weapon>>("secondaryWeapons").Select(x => x).ToList();
-            heavyWeapons = tag.Get<List<Weapon>>("heavyWeapons").Select (x => x).ToList();
+            tag[nameof(primaryWeapons)] = primaryWeapons;
+            tag[nameof(secondaryWeapons)] = secondaryWeapons;
+            tag[nameof(heavyWeapons)] = heavyWeapons;
+
+            tag[nameof(headArmorInventory)] = headArmorInventory;
+            tag[nameof(armArmorInventory)] = armArmorInventory;
+            tag[nameof(chestArmorInventory)] = chestArmorInventory;
+            tag[nameof(legArmorInventory)] = legArmorInventory;
+            tag[nameof(classArmorInventory)] = classArmorInventory;
 
             base.SaveData(tag);
         }

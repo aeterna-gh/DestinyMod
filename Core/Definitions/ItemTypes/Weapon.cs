@@ -136,6 +136,16 @@
             base.UpdateInventory(player);
         }
 
+        public override void LoadData(TagCompound tag)
+        {
+            traitList = tag.Get<List<Trait>>(nameof(traitList));
+        }
+
+        public override void SaveData(TagCompound tag)
+        {
+            tag[nameof(traitList)] = traitList;
+        }
+
         public enum AmmoType
         {
             Primary,
