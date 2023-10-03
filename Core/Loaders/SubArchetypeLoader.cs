@@ -26,15 +26,11 @@
         {
             DestinyMod mod = DestinyMod.Instance;
 
-            foreach (SubArchetype subArch in _subArchetypes)
-                subArch.Load();
+
         }
 
         public static void Unload()
         {
-            foreach (SubArchetype subArch in _subArchetypes)
-                subArch.Unload();
-
             foreach (var field in typeof(SubArchDefs).GetFields().Where(f => f.FieldType == typeof(SubArchetype)))
                 field.SetValue(null, null);
 
