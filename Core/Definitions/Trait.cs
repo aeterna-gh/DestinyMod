@@ -3,7 +3,7 @@
     public abstract class Trait : ModType, TagSerializable
     {
         public static readonly Func<TagCompound, Trait> DESERIALIZER = Load;
- 
+
         public bool isIntrinsic = false;
 
         public int ID { get; private set; }
@@ -16,7 +16,7 @@
 
         public TagCompound SerializeData() => new() { [nameof(ID)] = ID };
 
-        public static Trait Load(TagCompound tC) => TraitLoader.Get(tC.GetInt(nameof(ID)));
+        public static Trait Load(TagCompound tag) => TraitLoader.Get(tag.GetInt(nameof(ID)));
 
         public virtual void SetDefaults() { }
 

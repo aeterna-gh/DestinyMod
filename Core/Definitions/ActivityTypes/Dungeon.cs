@@ -1,6 +1,6 @@
 ﻿namespace DestinyMod.Core.Definitions.ActivityTypes
 {
-    internal class QueueableActivity : Activity
+    internal class Dungeon
     {
 
     }

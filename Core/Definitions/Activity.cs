@@ -6,6 +6,8 @@ namespace DestinyMod.Core.Definitions
     {
         public bool activityUnlocked;
 
+        public bool isActive;
+
         public int activityLightLevel;
 
         public int lobbyLightLevel;
@@ -18,22 +20,7 @@ namespace DestinyMod.Core.Definitions
 
         public List<DestinyPlayer> currentLobbyPlayers = new();
 
-        internal void InLobbyUpdates()
-        {
-            lobbyLightLevel = LightAverage();
-        }
-
-        public void JoinLobby(DestinyPlayer player) 
-        {
-            if (currentLobbyPlayers.Count >= lobbySize)
-                RejectPlayer();
-
-
-
-            OnJoinLobby();
-        }
-
-        public int LightAverage()
+        internal int FireteamLightAverage()
         {
             int[] lightLevels = new int[currentLobbyPlayers.Count];
             for (int i = 0; i < lightLevels.Length; i++)
@@ -44,6 +31,11 @@ namespace DestinyMod.Core.Definitions
             lightLevels = null;
 
             return total;
+        }
+
+        public void LaunchActivity()
+        {
+            isActive = true;
         }
 
         public void WhileActive()

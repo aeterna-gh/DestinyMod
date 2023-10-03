@@ -60,12 +60,16 @@
     <Folder Include="Content\Items\Weapons\Special\SniperRifles\" />
     <Folder Include="Content\Items\Weapons\Special\TraceRifles\" />
     <Folder Include="Content\Archetypes\" />
+    <Folder Include="Content\Factions\" />
     <Folder Include="Content\Traits\Armor\" />
     <Folder Include="Content\Traits\Weapons\Exotic\" />
     <Folder Include="Content\Traits\Weapons\Origin\" />
     <Folder Include="Content\Traits\Weapons\Special\" />
     <Folder Include="Core\Definitions\DestinyNPCPartials\" />
     <Folder Include="Content\GUI\Screens\Title\" />
+    <Folder Include="Core\Definitions\NPCTypes\" />
+    <Folder Include="Core\Enums\" />
+    <Folder Include="Core\Structs\" />
   </ItemGroup>
 	
 </Project>

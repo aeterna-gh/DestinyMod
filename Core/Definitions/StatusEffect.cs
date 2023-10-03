@@ -18,6 +18,8 @@
 
         public int stackMaximum;
 
+        public Texture2D iconTexture;
+
         internal void Reapply()
         {
             if (isStackable)

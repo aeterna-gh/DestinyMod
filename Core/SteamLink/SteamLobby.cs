@@ -1,6 +1,6 @@
 ﻿namespace DestinyMod.Core.SteamLink
 {
-    internal class SteamLobby
+    public class SteamLobby
     {
         public CSteamID LobbyId;
         public CSteamID LobbyHost;

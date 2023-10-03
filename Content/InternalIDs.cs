@@ -2,6 +2,45 @@
 {
     public class InternalIDs
     {
+        public enum AbilityID
+        {
+            //grenades first
+
+            //melees second
+
+            //classes third
+            Barricade_Rally,
+            Barricade_Towering,
+            Rift_Healing,
+            Rift_Empowering,
+            PhoenixDive,
+
+            //supers fourth
+            ArcStaff,
+            BladeBarrage,
+            BurningMaul,
+            ChaosReach,
+            Daybreak,
+            FistsOfHavoc,
+            GlacialQuake,
+            GoldenGun_Deadshot,
+            GoldenGun_Marksman,
+            HammerOfSol,
+            NovaBomb_Cataclysm,
+            NovaBomb_Vortex,
+            NovaWarp,
+            SentinelShield,
+            Shadowshot_Deadfall,
+            Shadowshot_MoebiusQuiver,
+            SilenceAndSquall,
+            SpectralBlades,
+            Stormtrance,
+            Thundercrash,
+            WardOfDawn,
+            WellOfRadiance,
+            WintersWrath,
+        }
+
         public enum ArchetypeID
         {
             AutoRifle,
